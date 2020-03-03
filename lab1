@@ -1,0 +1,50 @@
+import cmath
+import math
+
+print('Инструкция: Для ввода обыкновенных чисел, оставьте мнимую часть числа равной нулю.')
+print()
+
+a1 = float(input('Введите действительную часть числа a: '))
+a2 = float(input('Введите мнимую часть числа a: '))
+a = complex(a1, a2)
+if (int(a.imag)) == 0:
+    a = float(a.real)
+print(a)
+
+b1 = float(input('Введите действительную часть числа b: '))
+b2 = float(input('Введите мнимую часть числа b: '))
+b = complex(b1, b2)
+if (int(b.imag)) == 0:
+    b = float(b.real)
+print(b)
+
+c1 = float(input('Введите действительную часть числа c: '))
+c2 = float(input('Введите мнимую часть числа c: '))
+c = complex(c1, c2)
+if (int(c.imag)) == 0:
+    c = float(c.real)
+print(c)
+
+print('Вы ввели: ', '(', a, ')*x^2 + ', '(', b, ')*x + ', c, '= 0')
+
+d = b ** 2 - 4 * a * c
+print('Дискриминант D =', int(d.real))
+
+if (a == 0):
+    print("Решений нет (a = 0)")
+else:
+    if (int(a.imag) == 0) and (int(b.imag) == 0) and (int(c.imag) == 0) and (d > 0):
+        x1 = (-b + math.sqrt(float(d.real))) / (2 * a)
+        x2 = (-b - math.sqrt(float(d.real))) / (2 * a)
+        print('x1 =', x1, '; x2 =', x2)
+    else:
+        if (int(a.imag) == 0) and (int(b.imag) == 0) and (int(c.imag) == 0) and (d == 0) and (a != 0):
+            x = (-b) / (2 * a)
+            print('x =', x)
+        else:
+            if int(a.imag) != 0 or ((int(a.imag) != 0) or (int(b.imag) != 0) or (int(c.imag) != 0)):
+                z1 = (-b + cmath.sqrt(d)) / (2 * a)
+                z2 = (-b - cmath.sqrt(d)) / (2 * a)
+                print('z1 =', z1, '; z2 =', z2)
+            else:
+                print('Решений нет')
